@@ -153,7 +153,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: saturate(180%) blur(30px);
             -webkit-backdrop-filter: saturate(180%) blur(30px);
             display: flex;
@@ -226,6 +226,7 @@
         @media (max-width: 768px) {
             nav { display: none; }
             .menu-toggle { display: block; }
+            .header-container { padding: 0 20px; }
         }
 
         /* ==========================================================================
@@ -342,19 +343,22 @@
         }
 
         /* ==========================================================================
-           4. COMPANY LOGOS MARQUEE
+           4. COMPANY LOGOS MARQUEE (OPTIMIZED FOR FULL WIDTH)
            ========================================================================== */
         .marquee-wrapper {
             width: 100vw;
             position: relative;
             left: 50%;
-            transform: translateX(-50%);
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
             overflow: hidden;
             padding: 30px 0;
             background: linear-gradient(90deg, #000 0%, rgba(255,255,255,0.02) 50%, #000 100%);
             border-top: 1px solid var(--accent-border);
             border-bottom: 1px solid var(--accent-border);
             margin-top: 60px;
+            display: flex;
         }
 
         .marquee-track {
@@ -378,6 +382,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
         }
 
         .logo-item svg {
@@ -540,7 +545,7 @@
         }
 
         /* ==========================================================================
-           6. ANIMATIONS & RESPONSIVE
+           6. ANIMATIONS & MOBILE RESPONSIVE OPTIMIZATION
            ========================================================================== */
         .reveal {
             opacity: 0;
@@ -559,10 +564,16 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.8rem; }
-            .grid-3 { grid-template-columns: 1fr; }
-            section { padding: 100px 15px 60px 15px; }
+            h1 { font-size: 2.5rem; letter-spacing: -1px; }
+            h2 { font-size: 2rem; }
+            p { font-size: 0.95rem; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+            section { padding: 100px 15px 50px 15px; } /* Optimized mobile padding */
             .card { padding: 25px 20px; }
+            .logo-item { padding: 0 25px; font-size: 0.9rem; }
+            .logo-item svg { width: 20px; height: 20px; }
+            .mobile-nav-grid { gap: 10px; }
+            .mobile-link { padding: 20px 10px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -631,7 +642,7 @@
         <div class="reveal" style="text-align: center;">
             <h1>Product Manager.</h1>
             <p style="max-width: 600px; margin: 0 auto 30px auto; font-size: 1.15rem;">
-                Translating ambiguous business challenges into structured, high-impact product solutions through data-driven strategy and user-centric discovery[cite: 1].
+                Translating ambiguous business challenges into structured, high-impact product solutions through data-driven strategy and user-centric discovery.
             </p>
             <a href="#projects" class="btn">
                 View Case Studies
@@ -672,10 +683,10 @@
         </div>
         <div class="reveal" style="max-width: 750px; text-align: center;">
             <p>
-                Product Management professional with deep expertise across product discovery, market analysis, monetization, and growth experimentation[cite: 1]. 
+                Product Management professional with deep expertise across product discovery, market analysis, monetization, and growth experimentation. 
             </p>
             <p>
-                Adept at defining user personas, writing PRDs, and establishing measurable success metrics (OKRs, North Star)[cite: 1]. I bring robust exposure to consumer internet products paired with 6+ years of operational and customer-facing experience, providing a solid foundation in real-world problem-solving[cite: 1].
+                Adept at defining user personas, writing PRDs, and establishing measurable success metrics (OKRs, North Star). I bring robust exposure to consumer internet products paired with 6+ years of operational and customer-facing experience, providing a solid foundation in real-world problem-solving.
             </p>
         </div>
     </section>
@@ -692,17 +703,17 @@
             <div class="card">
                 <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
                 <h3>Strategy & Discovery</h3>
-                <p>Roadmapping, Product Prioritization (RICE), and Go-To-Market (GTM) execution[cite: 1].</p>
+                <p>Roadmapping, Product Prioritization (RICE), and Go-To-Market (GTM) execution.</p>
             </div>
             <div class="card">
                 <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                 <h3>Analytics & Growth</h3>
-                <p>A/B Testing, Funnel Analysis, AARRR Metrics, and tracking North Star KPIs[cite: 1].</p>
+                <p>A/B Testing, Funnel Analysis, AARRR Metrics, and tracking North Star KPIs.</p>
             </div>
             <div class="card">
                 <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
                 <h3>Agile Execution</h3>
-                <p>Writing detailed PRDs, User Stories, Acceptance Criteria, and Sprint Planning[cite: 1].</p>
+                <p>Writing detailed PRDs, User Stories, Acceptance Criteria, and Sprint Planning.</p>
             </div>
         </div>
     </section>
@@ -724,11 +735,11 @@
                     <span class="tag">Retention</span>
                 </div>
                 <h3>Crafto Premium Strategy</h3>
-                <p>Addressed sub-5% premium conversion and user churn for a platform with 120M+ downloads[cite: 1].</p>
+                <p>Addressed sub-5% premium conversion and user churn for a platform with 120M+ downloads.</p>
                 <ul>
-                    <li>Designed a tiered monetization architecture (Free, Lite, Pro)[cite: 1].</li>
-                    <li>Mapped conversion funnels to reduce pricing shock and payment friction[cite: 1].</li>
-                    <li>Proposed AI-enabled smart paywalls and a Daily Fresh Content Engine[cite: 1].</li>
+                    <li>Designed a tiered monetization architecture (Free, Lite, Pro).</li>
+                    <li>Mapped conversion funnels to reduce pricing shock and payment friction.</li>
+                    <li>Proposed AI-enabled smart paywalls and a Daily Fresh Content Engine.</li>
                 </ul>
             </div>
 
@@ -739,11 +750,11 @@
                     <span class="tag">AI Product</span>
                 </div>
                 <h3>YouTube Deep Dive</h3>
-                <p>Designed a 3–8 minute content format strategy bridging the gap between Shorts and long-form content[cite: 1].</p>
+                <p>Designed a 3–8 minute content format strategy bridging the gap between Shorts and long-form content.</p>
                 <ul>
-                    <li>Evaluated concepts via RICE framework focusing on distribution and revenue[cite: 1].</li>
-                    <li>Designed player enhancements like 60-second previews to reduce commitment anxiety[cite: 1].</li>
-                    <li>Built an AI-assisted Creator Simulator utilizing GPT-powered prompt chains[cite: 1].</li>
+                    <li>Evaluated concepts via RICE framework focusing on distribution and revenue.</li>
+                    <li>Designed player enhancements like 60-second previews to reduce commitment anxiety.</li>
+                    <li>Built an AI-assisted Creator Simulator utilizing GPT-powered prompt chains.</li>
                 </ul>
             </div>
             
@@ -751,11 +762,11 @@
             <div class="card" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 <div>
                     <h3>Growth Analysis (Zomato & Meesho)</h3>
-                    <p>Analyzed user cohorts, Drop-offs, and ARPU strategies. Designed A/B tests using the AARRR framework to optimize engagement bottlenecks[cite: 1].</p>
+                    <p>Analyzed user cohorts, Drop-offs, and ARPU strategies. Designed A/B tests using the AARRR framework to optimize engagement bottlenecks.</p>
                 </div>
                 <div>
                     <h3>System Architecture & PRD</h3>
-                    <p>Authored end-to-end wellness product PRDs. Designed scalable system architectures incorporating Redis, Python services, and OAuth 2.0[cite: 1].</p>
+                    <p>Authored end-to-end wellness product PRDs. Designed scalable system architectures incorporating Redis, Python services, and OAuth 2.0.</p>
                 </div>
             </div>
         </div>
@@ -775,7 +786,7 @@
                 <span class="timeline-date">Feb 2020 – Present</span>
                 <h3>Business Relationship Executive</h3>
                 <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem; margin-bottom: 10px;">SBI Credit Card</p>
-                <p>Manage end-to-end customer interactions across application, onboarding, and issue resolution[cite: 1]. Systematically document feedback and analyze recurring service patterns to inform cross-functional process optimization[cite: 1]. Balance business objectives with strict compliance requirements[cite: 1].</p>
+                <p>Manage end-to-end customer interactions across application, onboarding, and issue resolution. Systematically document feedback and analyze recurring service patterns to inform cross-functional process optimization. Balance business objectives with strict compliance requirements.</p>
             </div>
         </div>
     </section>
@@ -792,16 +803,16 @@
             <div class="card">
                 <h3>Academics</h3>
                 <ul>
-                    <li><strong>B.Tech Aerospace Engineering</strong><br>JNTU Kakinada[cite: 1]</li>
-                    <li><strong>Certifications</strong><br>Product Management & AI (Pendo), Product Analytics (Product School)[cite: 1]</li>
+                    <li><strong>B.Tech Aerospace Engineering</strong><br>JNTU Kakinada</li>
+                    <li><strong>Certifications</strong><br>Product Management & AI (Pendo), Product Analytics (Product School)</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Technical Toolkit</h3>
                 <ul>
-                    <li><strong>Product:</strong> Jira, Figma, Productboard, Notion[cite: 1]</li>
-                    <li><strong>Data:</strong> Google Analytics (GA4), Mixpanel, Clarity[cite: 1]</li>
-                    <li><strong>Tech:</strong> Python, Postman, REST APIs, Advanced Excel[cite: 1]</li>
+                    <li><strong>Product:</strong> Jira, Figma, Productboard, Notion</li>
+                    <li><strong>Data:</strong> Google Analytics (GA4), Mixpanel, Clarity</li>
+                    <li><strong>Tech:</strong> Python, Postman, REST APIs, Advanced Excel</li>
                 </ul>
             </div>
         </div>
@@ -814,13 +825,13 @@
         <div class="reveal" style="text-align: center;">
             <div class="icon-wrapper" style="margin-bottom: 20px;"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <h2>Let's Connect</h2>
-            <p style="margin-bottom: 30px;">Currently based in Hyderabad, India[cite: 1]. Open for product opportunities.</p>
+            <p style="margin-bottom: 30px;">Currently based in Hyderabad, India. Open for product opportunities.</p>
             
             <a href="mailto:jollupuneeth75@gmail.com" class="btn" style="padding: 16px 32px;">
-                jollupuneeth75@gmail.com[cite: 1]
+                jollupuneeth75@gmail.com
                 <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </a>
-            <p style="margin-top: 20px; font-size: 0.9rem;">Phone: +91 8019698409[cite: 1]</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Phone: +91 8019698409</p>
         </div>
     </section>
 
