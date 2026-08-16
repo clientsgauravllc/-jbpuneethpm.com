@@ -343,69 +343,7 @@
         }
 
         /* ==========================================================================
-           4. COMPANY LOGOS MARQUEE (OPTIMIZED FOR FULL WIDTH & MOBILE)
-           ========================================================================== */
-        .marquee-wrapper {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            overflow: hidden;
-            padding: 30px 0;
-            background: linear-gradient(90deg, #000 0%, rgba(255,255,255,0.02) 50%, #000 100%);
-            border-top: 1px solid var(--accent-border);
-            border-bottom: 1px solid var(--accent-border);
-            margin-top: 60px;
-            display: flex;
-            /* Ensures it forces full width regardless of container constraints */
-            box-sizing: border-box; 
-        }
-
-        .marquee-track {
-            display: flex;
-            width: max-content; /* Critical fix for inner content width */
-            animation: scroll 30s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .logo-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0 40px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease, transform 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .logo-item svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--text-muted);
-            transition: fill 0.3s ease;
-        }
-
-        .logo-item:hover, .logo-item:hover svg {
-            color: var(--text-main);
-            fill: var(--text-main);
-            transform: scale(1.05);
-            text-shadow: 0 0 10px rgba(255,255,255,0.4);
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ==========================================================================
-           5. CARDS & GRIDS
+           4. CARDS & GRIDS
            ========================================================================== */
         .grid-2 {
             display: grid;
@@ -545,7 +483,7 @@
         }
 
         /* ==========================================================================
-           6. ANIMATIONS & MOBILE RESPONSIVE OPTIMIZATION
+           5. ANIMATIONS & MOBILE RESPONSIVE OPTIMIZATION
            ========================================================================== */
         .reveal {
             opacity: 0;
@@ -564,20 +502,14 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; letter-spacing: -1px; }
+            h1 { font-size: 2.8rem; letter-spacing: -1px; }
             h2 { font-size: 2rem; }
-            p { font-size: 0.95rem; }
+            p { font-size: 1rem; }
             .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 20px; }
             section { padding: 100px 15px 50px 15px; } /* Optimized mobile padding */
             .card { padding: 25px 20px; }
-            
-            /* Mobile Marquee Fixes */
-            .marquee-wrapper { padding: 20px 0; }
-            .logo-item { padding: 0 25px; font-size: 1rem; }
-            .logo-item svg { width: 22px; height: 22px; }
-            
             .mobile-nav-grid { gap: 10px; }
-            .mobile-link { padding: 20px 10px; font-size: 0.85rem; }
+            .mobile-link { padding: 20px 10px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -652,28 +584,6 @@
                 View Case Studies
                 <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-        </div>
-
-        <!-- Marquee Banner with Inline SVGs -->
-        <div class="marquee-wrapper reveal" style="transition-delay: 0.2s;">
-            <div class="marquee-track">
-                <!-- Set 1 -->
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm-1-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm5 7h-2v-3c0-.55-.45-1-1-1s-1 .45-1 1v3h-2v-6h2v1.1c.36-.6 1.05-1.1 1.8-1.1 1.45 0 2.2 1.06 2.2 2.6v3.4z"/></svg> META</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.02 1.76-2.53 5.58.35 6.72-.65 1.63-1.49 3.32-2.4 4.49zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.84 4.2-3.74 4.25z"/></svg> APPLE</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M12.24 10.28v3.66h6.73c-.27 1.63-1.02 2.79-1.84 3.61-.99.99-2.54 2.1-4.89 2.1-3.9 0-7.07-3.17-7.07-7.07s3.17-7.07 7.07-7.07c2.1 0 3.86.81 5.15 2.05l2.6-2.61C18.15 3.01 15.53 1.8 12.24 1.8 6.64 1.8 2.1 6.34 2.1 11.94s4.54 10.14 10.14 10.14c2.97 0 5.25-.98 7.02-2.81 1.81-1.81 2.38-4.37 2.38-6.42 0-.48-.05-.93-.12-1.38h-9.28z"/></svg> GOOGLE</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg> YOUTUBE</div>
-                <div class="logo-item">ZOMATO</div>
-                <div class="logo-item">ZEPTO</div>
-                <div class="logo-item">UBER</div>
-                <!-- Set 2 (for seamless looping) -->
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm-1-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm5 7h-2v-3c0-.55-.45-1-1-1s-1 .45-1 1v3h-2v-6h2v1.1c.36-.6 1.05-1.1 1.8-1.1 1.45 0 2.2 1.06 2.2 2.6v3.4z"/></svg> META</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.02 1.76-2.53 5.58.35 6.72-.65 1.63-1.49 3.32-2.4 4.49zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.84 4.2-3.74 4.25z"/></svg> APPLE</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M12.24 10.28v3.66h6.73c-.27 1.63-1.02 2.79-1.84 3.61-.99.99-2.54 2.1-4.89 2.1-3.9 0-7.07-3.17-7.07-7.07s3.17-7.07 7.07-7.07c2.1 0 3.86.81 5.15 2.05l2.6-2.61C18.15 3.01 15.53 1.8 12.24 1.8 6.64 1.8 2.1 6.34 2.1 11.94s4.54 10.14 10.14 10.14c2.97 0 5.25-.98 7.02-2.81 1.81-1.81 2.38-4.37 2.38-6.42 0-.48-.05-.93-.12-1.38h-9.28z"/></svg> GOOGLE</div>
-                <div class="logo-item"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg> YOUTUBE</div>
-                <div class="logo-item">ZOMATO</div>
-                <div class="logo-item">ZEPTO</div>
-                <div class="logo-item">UBER</div>
-            </div>
         </div>
     </section>
 
