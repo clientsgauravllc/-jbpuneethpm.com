@@ -343,15 +343,13 @@
         }
 
         /* ==========================================================================
-           4. COMPANY LOGOS MARQUEE (OPTIMIZED FOR FULL WIDTH)
+           4. COMPANY LOGOS MARQUEE (OPTIMIZED FOR FULL WIDTH & MOBILE)
            ========================================================================== */
         .marquee-wrapper {
             width: 100vw;
             position: relative;
             left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+            transform: translateX(-50%);
             overflow: hidden;
             padding: 30px 0;
             background: linear-gradient(90deg, #000 0%, rgba(255,255,255,0.02) 50%, #000 100%);
@@ -359,11 +357,13 @@
             border-bottom: 1px solid var(--accent-border);
             margin-top: 60px;
             display: flex;
+            /* Ensures it forces full width regardless of container constraints */
+            box-sizing: border-box; 
         }
 
         .marquee-track {
             display: flex;
-            width: fit-content;
+            width: max-content; /* Critical fix for inner content width */
             animation: scroll 30s linear infinite;
         }
 
@@ -570,8 +570,12 @@
             .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 20px; }
             section { padding: 100px 15px 50px 15px; } /* Optimized mobile padding */
             .card { padding: 25px 20px; }
-            .logo-item { padding: 0 25px; font-size: 0.9rem; }
-            .logo-item svg { width: 20px; height: 20px; }
+            
+            /* Mobile Marquee Fixes */
+            .marquee-wrapper { padding: 20px 0; }
+            .logo-item { padding: 0 25px; font-size: 1rem; }
+            .logo-item svg { width: 22px; height: 22px; }
+            
             .mobile-nav-grid { gap: 10px; }
             .mobile-link { padding: 20px 10px; font-size: 0.85rem; }
         }
